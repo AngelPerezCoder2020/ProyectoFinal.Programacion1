@@ -28,27 +28,44 @@ public class Proyect extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        botonclientes = new javax.swing.JButton();
+        botonpeliculas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("NECFLISSS");
 
+        botonclientes.setText("Clientes");
+
+        botonpeliculas.setText("Peliculas");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(308, 308, 308)
-                .addComponent(jLabel1)
-                .addContainerGap(319, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(204, 204, 204)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(botonpeliculas)
+                            .addComponent(botonclientes))))
+                .addContainerGap(423, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(29, 29, 29)
                 .addComponent(jLabel1)
-                .addContainerGap(447, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addComponent(botonclientes)
+                .addGap(35, 35, 35)
+                .addComponent(botonpeliculas)
+                .addContainerGap(332, Short.MAX_VALUE))
         );
 
         pack();
@@ -90,6 +107,8 @@ public class Proyect extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonclientes;
+    private javax.swing.JButton botonpeliculas;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
