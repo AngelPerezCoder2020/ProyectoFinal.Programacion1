@@ -28,14 +28,24 @@ public class Proyect extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+<<<<<<< HEAD
+        botonclientes = new javax.swing.JButton();
+        botonpeliculas = new javax.swing.JButton();
+=======
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+>>>>>>> main
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("NECFLISSS");
 
+<<<<<<< HEAD
+        botonclientes.setText("Clientes");
+
+        botonpeliculas.setText("Peliculas");
+=======
         jLabel2.setText("Nombre jeje: ");
 
         jButton1.setText("BOTONCITO");
@@ -44,6 +54,7 @@ public class Proyect extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+>>>>>>> main
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -52,6 +63,16 @@ public class Proyect extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
+                        .addGap(204, 204, 204)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(botonpeliculas)
+                            .addComponent(botonclientes))))
+                .addContainerGap(423, Short.MAX_VALUE))
+=======
                         .addGap(308, 308, 308)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
@@ -62,16 +83,24 @@ public class Proyect extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(226, 226, 226))
+>>>>>>> main
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(29, 29, 29)
                 .addComponent(jLabel1)
+<<<<<<< HEAD
+                .addGap(33, 33, 33)
+                .addComponent(botonclientes)
+                .addGap(35, 35, 35)
+                .addComponent(botonpeliculas)
+=======
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addGap(65, 65, 65)
                 .addComponent(jButton1)
+>>>>>>> main
                 .addContainerGap(332, Short.MAX_VALUE))
         );
 
@@ -118,7 +147,12 @@ public class Proyect extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
+    private javax.swing.JButton botonclientes;
+    private javax.swing.JButton botonpeliculas;
+=======
     private javax.swing.JButton jButton1;
+>>>>>>> main
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
