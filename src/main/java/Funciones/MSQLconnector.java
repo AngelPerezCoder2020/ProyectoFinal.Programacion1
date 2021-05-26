@@ -1,4 +1,4 @@
-package MSQLconnector;
+package Funciones;
 
 public class MSQLconnector {
     
