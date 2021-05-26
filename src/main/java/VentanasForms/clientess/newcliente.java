@@ -1,9 +1,9 @@
 package VentanasForms.clientess;
 import Funciones.MSQLconnector;
+import VentanasForms.VentanaPrincipal;
 import java.sql.Connection;
 
 public class newcliente extends javax.swing.JFrame {
-    Connection c = MSQLconnector.conectar();
     public newcliente() {
         initComponents();
     }
@@ -112,7 +112,10 @@ public class newcliente extends javax.swing.JFrame {
     }//GEN-LAST:event_nomclientetxtActionPerformed
 
     private void nuevoclientebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoclientebtnActionPerformed
-        MSQLconnector.guardar(c,nomclientetxt, direccionclientetxt, edadclientetxt);
+        MSQLconnector.guardar(VentanaPrincipal.con,nomclientetxt, direccionclientetxt, edadclientetxt);
+        ventanacliente ventanaclientes = new ventanacliente();
+        ventanaclientes.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_nuevoclientebtnActionPerformed
 
     /**

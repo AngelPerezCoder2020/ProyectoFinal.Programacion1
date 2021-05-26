@@ -5,6 +5,7 @@ import VentanasForms.peliculas.ventanapeliculas;
 import java.sql.Connection;
 
 public class VentanaPrincipal extends javax.swing.JFrame {
+    public static Connection con = MSQLconnector.conectar();
     public VentanaPrincipal() {
         initComponents();
     }

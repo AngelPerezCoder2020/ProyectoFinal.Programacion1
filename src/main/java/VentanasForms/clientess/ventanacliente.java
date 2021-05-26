@@ -1,5 +1,4 @@
 package VentanasForms.clientess;
-
 import Funciones.MSQLconnector;
 import VentanasForms.VentanaPrincipal;
 
@@ -7,7 +6,7 @@ public class ventanacliente extends javax.swing.JFrame {
 
     public ventanacliente() {
         initComponents();
-        MSQLconnector.mostrardatos(MSQLconnector.conectar(), tablaclientes);
+        MSQLconnector.mostrardatos(VentanaPrincipal.con, tablaclientes);
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -38,6 +37,12 @@ public class ventanacliente extends javax.swing.JFrame {
 
             }
         ));
+        tablaclientes.getTableHeader().setReorderingAllowed(false);
+        tablaclientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaclientesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablaclientes);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -76,7 +81,17 @@ public class ventanacliente extends javax.swing.JFrame {
     private void agregarclienbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarclienbtnActionPerformed
         newcliente x = new newcliente();
         x.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_agregarclienbtnActionPerformed
+
+    private void tablaclientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaclientesMouseClicked
+        int fi = tablaclientes.rowAtPoint(evt.getPoint());
+        DatosCliente x = new DatosCliente();
+        x.setVisible(true);
+        x.SetNombre(tablaclientes.getValueAt(fi,1).toString());
+        x.SetDireccion(tablaclientes.getValueAt(fi,2).toString());
+        x.SetEdad(tablaclientes.getValueAt(fi,3).toString());
+    }//GEN-LAST:event_tablaclientesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -111,6 +126,9 @@ public class ventanacliente extends javax.swing.JFrame {
                 new ventanacliente().setVisible(true);
             }
         });
+    }
+    public javax.swing.JTable getTabla(){
+        return tablaclientes;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
