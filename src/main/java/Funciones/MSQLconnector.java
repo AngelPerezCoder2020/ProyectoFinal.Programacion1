@@ -32,6 +32,20 @@ public class MSQLconnector {
             error(ex);
         }
     }
+    public static void guardarpelicula(Connection x, javax.swing.JTextField n, javax.swing.JTextField a, javax.swing.JTextField d,javax.swing.JTextField p){
+        String c = "INSERT INTO `peliculas` (`NOMBRE`, `TIPO`, `GENERO`,`SINOPSIS`) VALUES (?, ?, ?,?);";
+        try{
+            PreparedStatement pst = x.prepareStatement(c);
+            pst.setString(1, n.getText());
+            pst.setString(2, a.getText());
+            pst.setString(3, d.getText());
+            pst.setString(4, p.getText());
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "pelicula Guardado en la base de datos");
+        }catch(Exception ex){
+            error(ex);
+        }
+    }
     public static void mostrardatos(Connection x, javax.swing.JTable t){
         String[] titulos = {"ID", "NOMBRE", "DIRECCION", "EDAD"};
         String[] Re = new String[4];
@@ -51,6 +65,30 @@ public class MSQLconnector {
             error(ex);
         }
     }
+        public static void mostrardatospeliculas(Connection x, javax.swing.JTable Pe){
+        String[] titles = {"ID", "NOMBRE", "TIPO", "GENERO","SINOPSIS"};
+        String[] Re = new String[5];
+        DefaultTableModel mo = new DefaultTableModel(null, titles);
+        Pe.setModel(mo);
+        try{
+            Statement st = con.createStatement();
+            ResultSet resultado = st.executeQuery("SELECT * FROM `peliculas`");
+            while(resultado.next()){
+                Re[0] = resultado.getString("ID");
+                Re[1] = resultado.getString("NOMBRE");
+                Re[2] = resultado.getString("TIPO");
+                Re[3] = resultado.getString("GENERO");
+                Re[4] = resultado.getString("SINOPSIS");
+                mo.addRow(Re);
+            }
+        }catch(Exception ex){
+            error(ex);
+        }
+    }
+    
+    
+    
+    
     public static void error(Exception x){
         JOptionPane.showMessageDialog(null, "Ah ocurrido un error: \n"+x.getMessage());
     }

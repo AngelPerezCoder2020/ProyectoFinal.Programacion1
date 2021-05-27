@@ -5,6 +5,10 @@
  */
 package VentanasForms.peliculas;
 
+import Funciones.MSQLconnector;
+import VentanasForms.VentanaPrincipal;
+
+
 /**
  *
  * @author herna
@@ -16,6 +20,7 @@ public class ventanapeliculas extends javax.swing.JFrame {
      */
     public ventanapeliculas() {
         initComponents();
+         MSQLconnector.mostrardatospeliculas(VentanaPrincipal.con, tablapeliculas);
     }
 
     /**
@@ -28,15 +33,20 @@ public class ventanapeliculas extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        newpelibtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablapeliculas = new javax.swing.JTable();
 
         jLabel1.setText("VENTANA PELICULAS");
 
-        jButton1.setText("AGREGAR PELICULA");
+        newpelibtn.setText("AGREGAR PELICULA");
+        newpelibtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newpelibtnActionPerformed(evt);
+            }
+        });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablapeliculas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -47,7 +57,7 @@ public class ventanapeliculas extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablapeliculas);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -57,7 +67,7 @@ public class ventanapeliculas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(219, 219, 219)
-                        .addComponent(jButton1))
+                        .addComponent(newpelibtn))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(231, 231, 231)
                         .addComponent(jLabel1))
@@ -74,17 +84,23 @@ public class ventanapeliculas extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(newpelibtn)
                 .addGap(48, 48, 48))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void newpelibtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newpelibtnActionPerformed
+        // TODO add your handling code here:
+        newpelicula x = new newpelicula();
+        x.setVisible(true);
+    }//GEN-LAST:event_newpelibtnActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JButton newpelibtn;
+    private javax.swing.JTable tablapeliculas;
     // End of variables declaration//GEN-END:variables
 }
