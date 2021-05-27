@@ -1,11 +1,22 @@
 package VentanasForms;
 import Funciones.MSQLconnector;
 import VentanasForms.clientess.ventanacliente;
+import VentanasForms.peliculas.newpelicula;
 import VentanasForms.peliculas.ventanapeliculas;
+import VentanasForms.peliculas.playlistusuario;
+import VentanasForms.clientess.newcliente;
+import VentanasForms.clientess.DatosCliente;
 import java.sql.Connection;
 
 public class VentanaPrincipal extends javax.swing.JFrame {
     public static Connection con = MSQLconnector.conectar();
+    public static newcliente newclientev = new newcliente();
+    public static DatosCliente datosclientev = new DatosCliente();
+    public static ventanacliente ventanaclientev = new ventanacliente();
+    public static ventanapeliculas ventanapeliculasv = new ventanapeliculas();
+    public static newpelicula newpeliculav = new newpelicula();
+    public static playlistusuario playlistusuariov = new playlistusuario();
+    
     public VentanaPrincipal() {
         initComponents();
     }
@@ -72,13 +83,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        ventanacliente x = new ventanacliente();
-        x.setVisible(true);
+        ventanaclientev.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        ventanapeliculas x = new ventanapeliculas();
-        x.setVisible(true);
+        ventanapeliculasv.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

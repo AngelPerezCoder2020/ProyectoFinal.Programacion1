@@ -32,6 +32,20 @@ public class MSQLconnector {
             error(ex);
         }
     }
+    public static void guardarPeli(Connection x, javax.swing.JTextField n, javax.swing.JTextField t, javax.swing.JTextField g, javax.swing.JTextField s){
+        String c = "INSERT INTO `peliculas` (`NOMBRE`, `TIPO`, `GENERO`, `SINOPSIS`) VALUES (?, ?, ?, ?);";
+        try{
+            PreparedStatement pst = x.prepareStatement(c);
+            pst.setString(1, n.getText());
+            pst.setString(2, t.getText());
+            pst.setString(3, g.getText());
+            pst.setString(4, s.getText());
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Pelicula Guardada en la base de datos");
+        }catch(Exception ex){
+            error(ex);
+        }
+    }
     public static void mostrardatos(Connection x, javax.swing.JTable t){
         String[] titulos = {"ID", "NOMBRE", "DIRECCION", "EDAD"};
         String[] Re = new String[4];
@@ -45,6 +59,46 @@ public class MSQLconnector {
                 Re[1] = resultado.getString("NOMBRE");
                 Re[2] = resultado.getString("DIRECCION");
                 Re[3] = resultado.getString("EDAD");
+                mo.addRow(Re);
+            }
+        }catch(Exception ex){
+            error(ex);
+        }
+    }
+    public static void mostrardatosPeli(Connection x, javax.swing.JTable t){
+        String[] titulos = {"ID", "NOMBRE", "TIPO", "GENERO", "SINOPSIS"};
+        String[] Re = new String[5];
+        DefaultTableModel mo = new DefaultTableModel(null, titulos);
+        t.setModel(mo);
+        try{
+            Statement st = con.createStatement();
+            ResultSet resultado = st.executeQuery("SELECT * FROM `peliculas`");
+            while(resultado.next()){
+                Re[0] = resultado.getString("ID");
+                Re[1] = resultado.getString("NOMBRE");
+                Re[2] = resultado.getString("TIPO");
+                Re[3] = resultado.getString("GENERO");
+                Re[4] = resultado.getString("SINOPSIS");
+                mo.addRow(Re);
+            }
+        }catch(Exception ex){
+            error(ex);
+        }
+    }
+    public static void mostrardatosPlayList(Connection x, javax.swing.JTable t){
+        String[] titulos = {"ID", "NOMBRE", "TIPO", "GENERO", "SINOPSIS"};
+        String[] Re = new String[5];
+        DefaultTableModel mo = new DefaultTableModel(null, titulos);
+        t.setModel(mo);
+        try{
+            Statement st = con.createStatement();
+            ResultSet resultado = st.executeQuery("SELECT * FROM `playlist`");
+            while(resultado.next()){
+                Re[0] = resultado.getString("ID");
+                Re[1] = resultado.getString("NOMBRE");
+                Re[2] = resultado.getString("TIPO");
+                Re[3] = resultado.getString("GENERO");
+                Re[4] = resultado.getString("SINOPSIS");
                 mo.addRow(Re);
             }
         }catch(Exception ex){

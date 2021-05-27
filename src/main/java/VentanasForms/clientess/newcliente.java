@@ -114,8 +114,8 @@ public class newcliente extends javax.swing.JFrame {
 
     private void nuevoclientebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoclientebtnActionPerformed
         MSQLconnector.guardar(VentanaPrincipal.con,nomclientetxt, direccionclientetxt, edadclientetxt);
-        ventanacliente ventanaclientes = new ventanacliente();
-        ventanaclientes.setVisible(true);
+        MSQLconnector.mostrardatos(VentanaPrincipal.con, VentanaPrincipal.ventanaclientev.getTabla());
+        VentanaPrincipal.ventanaclientev.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_nuevoclientebtnActionPerformed
 
