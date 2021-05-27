@@ -1,4 +1,6 @@
 package Funciones;
+
+import VentanasForms.VentanaPrincipal;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 import java.sql.DriverManager;
@@ -32,16 +34,16 @@ public class MSQLconnector {
             error(ex);
         }
     }
-    public static void guardarpelicula(Connection x, javax.swing.JTextField n, javax.swing.JTextField a, javax.swing.JTextField d,javax.swing.JTextField p){
-        String c = "INSERT INTO `peliculas` (`NOMBRE`, `TIPO`, `GENERO`,`SINOPSIS`) VALUES (?, ?, ?,?);";
+    public static void guardarPeli(Connection x, javax.swing.JTextField n, javax.swing.JTextField t, javax.swing.JTextField g, javax.swing.JTextField s){
+        String c = "INSERT INTO `peliculas` (`NOMBRE`, `TIPO`, `GENERO`, `SINOPSIS`) VALUES (?, ?, ?, ?);";
         try{
             PreparedStatement pst = x.prepareStatement(c);
             pst.setString(1, n.getText());
-            pst.setString(2, a.getText());
-            pst.setString(3, d.getText());
-            pst.setString(4, p.getText());
+            pst.setString(2, t.getText());
+            pst.setString(3, g.getText());
+            pst.setString(4, s.getText());
             pst.execute();
-            JOptionPane.showMessageDialog(null, "pelicula Guardado en la base de datos");
+            JOptionPane.showMessageDialog(null, "Pelicula Guardada en la base de datos");
         }catch(Exception ex){
             error(ex);
         }
@@ -65,11 +67,11 @@ public class MSQLconnector {
             error(ex);
         }
     }
-        public static void mostrardatospeliculas(Connection x, javax.swing.JTable Pe){
-        String[] titles = {"ID", "NOMBRE", "TIPO", "GENERO","SINOPSIS"};
+    public static void mostrardatosPeli(Connection x, javax.swing.JTable t){
+        String[] titulos = {"ID", "NOMBRE", "TIPO", "GENERO", "SINOPSIS"};
         String[] Re = new String[5];
-        DefaultTableModel mo = new DefaultTableModel(null, titles);
-        Pe.setModel(mo);
+        DefaultTableModel mo = new DefaultTableModel(null, titulos);
+        t.setModel(mo);
         try{
             Statement st = con.createStatement();
             ResultSet resultado = st.executeQuery("SELECT * FROM `peliculas`");
@@ -85,10 +87,35 @@ public class MSQLconnector {
             error(ex);
         }
     }
-    
-    
-    
-    
+    public static void mostrardatosPlayList(Connection x, javax.swing.JTable t){
+        String[] titulos = {"NOMBRE", "TIPO", "GENERO", "SINOPSIS"};
+        String[] Re = new String[4];
+        DefaultTableModel mo = new DefaultTableModel(null, titulos);
+        t.setModel(mo);
+        try{
+            Statement st = con.createStatement();
+            ResultSet resultado = st.executeQuery("SELECT * FROM `playlist`");
+            while(resultado.next()){
+                if(Integer.parseInt(resultado.getString("ID_CLIENTE"))==VentanaPrincipal.ventanaclientev.id){
+                    String c = "SELECT FROM `peliculas` WHERE `peliculas`.`ID` = "+resultado.getString("ID_PELICULA").toString()+";";
+                    try{
+                        ResultSet playL = st.executeQuery(c);
+                        Re[0]= playL.getString("NOMBRE").toString();
+                        Re[1]= playL.getString("TIPO").toString();
+                        Re[2]= playL.getString("GENERO").toString();
+                        Re[3]= playL.getString("SINOPSIS").toString();
+                        mo.addRow(Re);
+                    }catch(Exception ex){
+                        error(ex);
+                    }
+                }else{
+                    continue;
+                }
+            }
+        }catch(Exception ex){
+            error(ex);
+        }
+    }
     public static void error(Exception x){
         JOptionPane.showMessageDialog(null, "Ah ocurrido un error: \n"+x.getMessage());
     }
