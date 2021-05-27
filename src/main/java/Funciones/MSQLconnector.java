@@ -34,13 +34,13 @@ public class MSQLconnector {
             error(ex);
         }
     }
-    public static void guardarPeli(Connection x, javax.swing.JTextField n, javax.swing.JTextField t, javax.swing.JTextField g, javax.swing.JTextField s){
+    public static void guardarPeli(Connection x, javax.swing.JTextField n, javax.swing.JComboBox t, javax.swing.JComboBox g, javax.swing.JTextField s){
         String c = "INSERT INTO `peliculas` (`NOMBRE`, `TIPO`, `GENERO`, `SINOPSIS`) VALUES (?, ?, ?, ?);";
         try{
             PreparedStatement pst = x.prepareStatement(c);
             pst.setString(1, n.getText());
-            pst.setString(2, t.getText());
-            pst.setString(3, g.getText());
+            pst.setString(2, t.getSelectedItem().toString());
+            pst.setString(3, g.getSelectedItem().toString());
             pst.setString(4, s.getText());
             pst.execute();
             JOptionPane.showMessageDialog(null, "Pelicula Guardada en la base de datos");
