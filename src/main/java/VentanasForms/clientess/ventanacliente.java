@@ -3,7 +3,7 @@ import Funciones.MSQLconnector;
 import VentanasForms.VentanaPrincipal;
 
 public class ventanacliente extends javax.swing.JFrame {
-    public int id = 0;
+    public String id;
     public ventanacliente() {
         initComponents();
         MSQLconnector.mostrardatos(VentanaPrincipal.con, tablaclientes);
@@ -11,7 +11,7 @@ public class ventanacliente extends javax.swing.JFrame {
     public javax.swing.JTable getTabla(){
         return tablaclientes;
     }
-    public void guardarid(int x){
+    public void guardarid(String x){
         id = x;
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -112,7 +112,7 @@ public class ventanacliente extends javax.swing.JFrame {
         VentanaPrincipal.datosclientev.SetNombre(tablaclientes.getValueAt(fi,1).toString());
         VentanaPrincipal.datosclientev.SetDireccion(tablaclientes.getValueAt(fi,2).toString());
         VentanaPrincipal.datosclientev.SetEdad(tablaclientes.getValueAt(fi,3).toString());
-        guardarid(Integer.parseInt(tablaclientes.getValueAt(fi, 0).toString()));
+        guardarid(tablaclientes.getValueAt(fi, 0).toString());
     }//GEN-LAST:event_tablaclientesMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

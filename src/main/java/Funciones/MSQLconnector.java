@@ -96,8 +96,8 @@ public class MSQLconnector {
             Statement st = con.createStatement();
             ResultSet resultado = st.executeQuery("SELECT * FROM `playlist`");
             while(resultado.next()){
-                if(Integer.parseInt(resultado.getString("ID_CLIENTE"))==VentanaPrincipal.ventanaclientev.id){
-                    String c = "SELECT FROM `peliculas` WHERE `peliculas`.`ID` = "+resultado.getString("ID_PELICULA").toString()+";";
+                if(resultado.getString("ID_CLIENTE").equals(VentanaPrincipal.ventanaclientev.id)){
+                    String c = "SELECT * FROM `peliculas` WHERE `ID` = "+resultado.getString("ID_PELICULA").toString()+";";
                     try{
                         ResultSet playL = st.executeQuery(c);
                         Re[0]= playL.getString("NOMBRE").toString();
