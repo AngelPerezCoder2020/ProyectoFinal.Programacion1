@@ -7,7 +7,9 @@ public class playlistusuario extends javax.swing.JFrame {
 
     public playlistusuario() {
         initComponents();
-        MSQLconnector.mostrardatosPlayList(VentanaPrincipal.con, tablaplaylist);
+    }
+    public javax.swing.JTable getTabla(){
+        return tablaplaylist;
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -17,8 +19,6 @@ public class playlistusuario extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaplaylist = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("PLAYLIST DEL USUARIO");
 

@@ -1,5 +1,6 @@
 package VentanasForms.clientess;
 
+import Funciones.MSQLconnector;
 import VentanasForms.VentanaPrincipal;
 
 public class DatosCliente extends javax.swing.JFrame {
@@ -98,6 +99,7 @@ public class DatosCliente extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         VentanaPrincipal.playlistusuariov.setVisible(true);
+        MSQLconnector.mostrardatosPlayList(VentanaPrincipal.con, VentanaPrincipal.playlistusuariov.getTabla());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public void SetNombre(String x){

@@ -1,4 +1,6 @@
 package Funciones;
+
+import VentanasForms.VentanaPrincipal;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 import java.sql.DriverManager;
@@ -86,20 +88,29 @@ public class MSQLconnector {
         }
     }
     public static void mostrardatosPlayList(Connection x, javax.swing.JTable t){
-        String[] titulos = {"ID", "NOMBRE", "TIPO", "GENERO", "SINOPSIS"};
-        String[] Re = new String[5];
+        String[] titulos = {"NOMBRE", "TIPO", "GENERO", "SINOPSIS"};
+        String[] Re = new String[4];
         DefaultTableModel mo = new DefaultTableModel(null, titulos);
         t.setModel(mo);
         try{
             Statement st = con.createStatement();
             ResultSet resultado = st.executeQuery("SELECT * FROM `playlist`");
             while(resultado.next()){
-                Re[0] = resultado.getString("ID");
-                Re[1] = resultado.getString("NOMBRE");
-                Re[2] = resultado.getString("TIPO");
-                Re[3] = resultado.getString("GENERO");
-                Re[4] = resultado.getString("SINOPSIS");
-                mo.addRow(Re);
+                if(Integer.parseInt(resultado.getString("ID_CLIENTE"))==VentanaPrincipal.ventanaclientev.id){
+                    String c = "SELECT FROM `peliculas` WHERE `peliculas`.`ID` = "+resultado.getString("ID_PELICULA").toString()+";";
+                    try{
+                        ResultSet playL = st.executeQuery(c);
+                        Re[0]= playL.getString("NOMBRE").toString();
+                        Re[1]= playL.getString("TIPO").toString();
+                        Re[2]= playL.getString("GENERO").toString();
+                        Re[3]= playL.getString("SINOPSIS").toString();
+                        mo.addRow(Re);
+                    }catch(Exception ex){
+                        error(ex);
+                    }
+                }else{
+                    continue;
+                }
             }
         }catch(Exception ex){
             error(ex);

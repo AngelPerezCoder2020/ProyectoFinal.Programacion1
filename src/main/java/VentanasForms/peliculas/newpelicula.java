@@ -28,8 +28,6 @@ public class newpelicula extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 36)); // NOI18N
         jLabel1.setText("NUEVA PELICULA ");
 
