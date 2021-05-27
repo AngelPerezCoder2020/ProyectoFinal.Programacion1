@@ -15,13 +15,14 @@ public class ventanapeliculas extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        newpelibtn = new javax.swing.JButton();
+        JButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablapeliculas = new javax.swing.JTable();
 
         jLabel1.setText("VENTANA PELICULAS");
-        jButton1.setText("AGREGAR PELICULA");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+
+        JButton1.setText("AGREGAR PELICULA");
+        JButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
@@ -48,7 +49,7 @@ public class ventanapeliculas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(219, 219, 219)
-                        .addComponent(newpelibtn))
+                        .addComponent(JButton1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(231, 231, 231)
                         .addComponent(jLabel1))
@@ -65,7 +66,7 @@ public class ventanapeliculas extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(newpelibtn)
+                .addComponent(JButton1)
                 .addGap(48, 48, 48))
         );
 
@@ -77,6 +78,7 @@ public class ventanapeliculas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablapeliculas;

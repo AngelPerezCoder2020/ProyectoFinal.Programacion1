@@ -24,7 +24,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="219" max="-2" attributes="0"/>
-                      <Component id="newpelibtn" min="-2" max="-2" attributes="0"/>
+                      <Component id="JButton1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="231" max="-2" attributes="0"/>
@@ -47,7 +47,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="336" max="-2" attributes="0"/>
               <EmptySpace pref="28" max="32767" attributes="0"/>
-              <Component id="newpelibtn" min="-2" max="-2" attributes="0"/>
+              <Component id="JButton1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -59,7 +59,7 @@
         <Property name="text" type="java.lang.String" value="VENTANA PELICULAS"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="newpelibtn">
+    <Component class="javax.swing.JButton" name="JButton1">
       <Properties>
         <Property name="text" type="java.lang.String" value="AGREGAR PELICULA"/>
       </Properties>

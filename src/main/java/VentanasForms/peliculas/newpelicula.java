@@ -25,7 +25,7 @@ public class newpelicula extends javax.swing.JFrame {
         tipopelitxt = new javax.swing.JTextField();
         generotxt = new javax.swing.JTextField();
         sinopsistxt = new javax.swing.JTextField();
-        agregarpelibtn = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         cancelapelibtn = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 36)); // NOI18N
@@ -52,14 +52,19 @@ public class newpelicula extends javax.swing.JFrame {
 
         sinopsistxt.setText(" ");
 
-        agregarpelibtn.setText("AGREGAR");
-        agregarpelibtn.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("AGREGAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                agregarpelibtnActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
         cancelapelibtn.setText("CANCELAR");
+        cancelapelibtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelapelibtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -85,7 +90,7 @@ public class newpelicula extends javax.swing.JFrame {
                             .addComponent(namepelitxt))
                         .addGap(47, 47, 47)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(agregarpelibtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(cancelapelibtn, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE))))
                 .addContainerGap())
         );
@@ -109,7 +114,7 @@ public class newpelicula extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(generotxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(agregarpelibtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(cancelapelibtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20)
@@ -144,10 +149,14 @@ public class newpelicula extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void cancelapelibtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelapelibtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cancelapelibtnActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton agregarpelibtn;
     private javax.swing.JButton cancelapelibtn;
     private javax.swing.JTextField generotxt;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
