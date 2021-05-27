@@ -151,6 +151,8 @@ public class newpelicula extends javax.swing.JFrame {
 
     private void cancelapelibtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelapelibtnActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        new ventanapeliculas().setVisible(true);
     }//GEN-LAST:event_cancelapelibtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
