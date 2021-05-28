@@ -8,8 +8,6 @@ public class AgregarPlaylistCliente extends javax.swing.JFrame {
     public String id;
     public AgregarPlaylistCliente() {
         initComponents();
-        MSQLconnector.mostrardatosPeli(VentanaPrincipal.con, tablapeliculas);
-        MSQLconnector.mostrardatos(VentanaPrincipal.con, tablaclientes);
     }
     public void limpiar(){
         txtIDNombre.setText("");
@@ -347,8 +345,8 @@ public class AgregarPlaylistCliente extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable tablaclientes;
-    private javax.swing.JTable tablapeliculas;
+    public javax.swing.JTable tablaclientes;
+    public javax.swing.JTable tablapeliculas;
     private javax.swing.JTable tablapersonal;
     private javax.swing.JTextField txtIDNombre;
     private javax.swing.JTextField txtIDPeli;

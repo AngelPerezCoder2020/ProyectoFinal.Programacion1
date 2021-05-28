@@ -1,5 +1,6 @@
 package VentanasForms.clientess;
 
+import Funciones.MSQLconnector;
 import VentanasForms.VentanaPrincipal;
 
 public class DatosCliente extends javax.swing.JFrame {
@@ -120,6 +121,8 @@ public class DatosCliente extends javax.swing.JFrame {
     private void btnPlaylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaylistActionPerformed
         this.setVisible(false);
         VentanaPrincipal.AgregarPlaylistClientev.setVisible(true);
+        MSQLconnector.mostrardatosPeli(VentanaPrincipal.con, VentanaPrincipal.AgregarPlaylistClientev.tablapeliculas);
+        MSQLconnector.mostrardatos(VentanaPrincipal.con, VentanaPrincipal.AgregarPlaylistClientev.tablaclientes);
     }//GEN-LAST:event_btnPlaylistActionPerformed
 
     private void btnSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalidaActionPerformed
