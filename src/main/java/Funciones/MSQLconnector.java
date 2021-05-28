@@ -11,6 +11,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class MSQLconnector {
     public static Connection con = null;
+    public static javax.swing.table.DefaultTableModel mod;
     public static Connection conectar(){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -68,7 +69,7 @@ public class MSQLconnector {
         DefaultTableModel mo = new DefaultTableModel(null, titulos);
         t.setModel(mo);
         try{
-            Statement st = con.createStatement();
+            Statement st = x.createStatement();
             ResultSet resultado = st.executeQuery("SELECT * FROM `clientes`");
             while(resultado.next()){
                 Re[0] = resultado.getString("ID");
@@ -87,7 +88,7 @@ public class MSQLconnector {
         DefaultTableModel mo = new DefaultTableModel(null, titulos);
         t.setModel(mo);
         try{
-            Statement st = con.createStatement();
+            Statement st = x.createStatement();
             ResultSet resultado = st.executeQuery("SELECT * FROM `peliculas`");
             while(resultado.next()){
                 Re[0] = resultado.getString("ID");
@@ -102,34 +103,41 @@ public class MSQLconnector {
         }
     }
     public static void mostrardatosPlayList(Connection x, javax.swing.JTable t){
-        String[] titulos = {"ID","ID_CLIENTE", "NombreCliente", "ID_PELICULA", "NombrePelicula"};
+        String[] titulos = {"NOMBRE","TIPO", "GENERO", "SINOPSIS"};
         String[] Re = new String[4];
-        DefaultTableModel mo = new DefaultTableModel(null, titulos);
-        t.setModel(mo);
+        DefaultTableModel mod = new DefaultTableModel(null, titulos);
+        t.setModel(mod);
         try{
-            Statement st = con.createStatement();
+            Statement st = x.createStatement();
             ResultSet resultado = st.executeQuery("SELECT * FROM `playlist`");
             while(resultado.next()){
-                if(resultado.getString("ID_CLIENTE").equals(VentanaPrincipal.ventanaclientev.id)){
+                if(resultado.getString("ID_CLIENTE").equals(VentanaPrincipal.AgregarPlaylistClientev.id)){
                     String c = "SELECT * FROM `peliculas` WHERE `ID` = "+resultado.getString("ID_PELICULA").toString()+";";
                     try{
-                        ResultSet playL = st.executeQuery(c);
-                        Re[0]= playL.getString("ID").toString();
-                        Re[1]= playL.getString("NombreCliente").toString();
-                        Re[2]= playL.getString("NombreCliente").toString();
-                        Re[3]= playL.getString("ID_PELICULA").toString();
-                        Re[4]= playL.getString("NombrePelicula").toString();
-                        mo.addRow(Re);
+                        Statement std = x.createStatement();
+                        ResultSet playL = std.executeQuery(c);
+                        while(playL.next()){
+                            Re[0] = playL.getString("NOMBRE");
+                            Re[1] = playL.getString("TIPO");
+                            Re[2] = playL.getString("GENERO");
+                            Re[3] = playL.getString("SINOPSIS");
+                            mod.addRow(Re);
+                        }
                     }catch(Exception ex){
                         error(ex);
                     }
                 }else{
                     continue;
                 }
+                
             }
+            guardarmodelo(mod);
         }catch(Exception ex){
             error(ex);
         }
+    }
+    public static void guardarmodelo(javax.swing.table.DefaultTableModel x){
+        mod = x;
     }
     public static void error(Exception x){
         JOptionPane.showMessageDialog(null, "Ah ocurrido un error: \n"+x.getMessage());

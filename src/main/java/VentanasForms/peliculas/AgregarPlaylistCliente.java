@@ -5,10 +5,26 @@ import VentanasForms.VentanaPrincipal;
 
 public class AgregarPlaylistCliente extends javax.swing.JFrame {
     Playlist Nuevaplaylist = new Playlist();
+    public String id;
     public AgregarPlaylistCliente() {
         initComponents();
         MSQLconnector.mostrardatosPeli(VentanaPrincipal.con, tablapeliculas);
         MSQLconnector.mostrardatos(VentanaPrincipal.con, tablaclientes);
+    }
+    public void limpiar(){
+        txtIDNombre.setText("");
+        txtNombre.setText("");
+        txtIDPeli.setText("");
+        txtPeli.setText("");
+    }
+    public void guardarid(String x){
+        id = x;
+    }
+    public void limpiartabla(javax.swing.table.DefaultTableModel mo){
+        int n = tablapersonal.getRowCount();
+        for(int x = n-1; x >= 0; x--){
+            mo.removeRow(x);
+        }
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -174,7 +190,7 @@ public class AgregarPlaylistCliente extends javax.swing.JFrame {
         jLabel2.setText("PlayList Personal");
 
         jLabel8.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 24)); // NOI18N
-        jLabel8.setText("Selecciona tu nombre");
+        jLabel8.setText("Selecciona Cliente");
 
         tablaclientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -256,25 +272,28 @@ public class AgregarPlaylistCliente extends javax.swing.JFrame {
         Nuevaplaylist.setID_pelicula(txtIDPeli.getText());
         Nuevaplaylist.setPelicula(txtPeli.getText());
         MSQLconnector.guardarplaylist(VentanaPrincipal.con,Nuevaplaylist.getID_nombre(),Nuevaplaylist.getNombre(),Nuevaplaylist.getID_pelicula(),Nuevaplaylist.getPelicula());
-        MSQLconnector.mostrardatosPlayList(VentanaPrincipal.con, VentanaPrincipal.ventanaclientev.getTabla());
-        MSQLconnector.mostrardatos(VentanaPrincipal.con, tablapersonal);
+        MSQLconnector.mostrardatosPlayList(VentanaPrincipal.con, tablapersonal);
     }//GEN-LAST:event_btnAgregarplaylistActionPerformed
 
     private void tablapeliculasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablapeliculasMouseClicked
         int f = tablapeliculas.rowAtPoint(evt.getPoint());
         txtIDPeli.setText(tablapeliculas.getValueAt(f, 0).toString());
         txtPeli.setText(tablapeliculas.getValueAt(f, 1).toString());
-        
     }//GEN-LAST:event_tablapeliculasMouseClicked
 
     private void tablaclientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaclientesMouseClicked
         int f = tablaclientes.rowAtPoint(evt.getPoint());
-        txtIDNombre.setText(tablaclientes.getValueAt(f, 0).toString());
+        String id = tablaclientes.getValueAt(f, 0).toString();
+        txtIDNombre.setText(id);
         txtNombre.setText(tablaclientes.getValueAt(f, 1).toString());
+        guardarid(id);
+        MSQLconnector.mostrardatosPlayList(VentanaPrincipal.con, tablapersonal);
     }//GEN-LAST:event_tablaclientesMouseClicked
 
     private void btnSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalidaActionPerformed
         this.setVisible(false);
+        this.limpiar();
+        this.limpiartabla(MSQLconnector.mod);
         VentanaPrincipal.datosclientev.setVisible(true);
     }//GEN-LAST:event_btnSalidaActionPerformed
 
