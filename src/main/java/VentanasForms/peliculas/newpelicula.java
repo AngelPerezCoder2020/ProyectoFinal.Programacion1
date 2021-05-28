@@ -9,6 +9,10 @@ public class newpelicula extends javax.swing.JFrame {
     public newpelicula() {
         initComponents();
     }
+    public void limpiar(){
+        nombrepelitxt.setText("");
+        sinopsistxt.setText("");
+    }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -151,12 +155,14 @@ public class newpelicula extends javax.swing.JFrame {
         pelicula.setGenero(generopeli.getSelectedItem().toString());
         pelicula.setSinopsis(sinopsistxt.getText());
         MSQLconnector.guardarPeli(VentanaPrincipal.con,pelicula.getNombre(),pelicula.getTipo(),pelicula.getGenero(),pelicula.getSinopsis());
+        this.limpiar();
         this.setVisible(false);
-        VentanaPrincipal.ventanapeliculasv.setVisible(true);
         MSQLconnector.mostrardatosPeli(VentanaPrincipal.con, VentanaPrincipal.ventanapeliculasv.getTabla());
+        VentanaPrincipal.ventanapeliculasv.setVisible(true);
     }//GEN-LAST:event_btnGuardarPeliActionPerformed
 
     private void btnSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalidaActionPerformed
+        this.limpiar();
         this.setVisible(false);
         VentanaPrincipal.ventanapeliculasv.setVisible(true);
     }//GEN-LAST:event_btnSalidaActionPerformed

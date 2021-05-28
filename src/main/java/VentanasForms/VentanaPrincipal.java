@@ -12,8 +12,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public static ventanacliente ventanaclientev = new ventanacliente();
     public static ventanapeliculas ventanapeliculasv = new ventanapeliculas();
     public static newpelicula newpeliculav = new newpelicula();
-    public static playlistusuario playlistusuariov = new playlistusuario();
     public static AgregarPlaylistCliente AgregarPlaylistClientev = new AgregarPlaylistCliente();
+    public static VentanaPrincipal VentanaPrincipalv = new VentanaPrincipal();
     
     public VentanaPrincipal() {
         initComponents();
@@ -83,12 +83,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.setVisible(false);
         ventanaclientev.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.setVisible(false);
         ventanapeliculasv.setVisible(true);
-        ventanapeliculasv.getButton().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -121,7 +122,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaPrincipal().setVisible(true);
+                VentanaPrincipalv.setVisible(true);
             }
         });
     }

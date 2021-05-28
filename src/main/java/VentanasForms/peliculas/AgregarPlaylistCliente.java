@@ -4,18 +4,12 @@ import Funciones.MSQLconnector;
 import VentanasForms.VentanaPrincipal;
 
 public class AgregarPlaylistCliente extends javax.swing.JFrame {
-
-
+    Playlist Nuevaplaylist = new Playlist();
     public AgregarPlaylistCliente() {
         initComponents();
         MSQLconnector.mostrardatosPeli(VentanaPrincipal.con, tablapeliculas);
         MSQLconnector.mostrardatos(VentanaPrincipal.con, tablaclientes);
-        
     }
-    
-
-
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -108,7 +102,7 @@ public class AgregarPlaylistCliente extends javax.swing.JFrame {
                                     .addComponent(txtIDPeli, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
                                     .addComponent(txtPeli)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(btnAgregarplaylist, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                                .addComponent(btnAgregarplaylist, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(49, Short.MAX_VALUE))
@@ -257,7 +251,6 @@ public class AgregarPlaylistCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarplaylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarplaylistActionPerformed
-        Playlist Nuevaplaylist = new Playlist();
         Nuevaplaylist.setID_nombre(txtIDNombre.getText());
         Nuevaplaylist.setNombre(txtNombre.getText());
         Nuevaplaylist.setID_pelicula(txtIDPeli.getText());

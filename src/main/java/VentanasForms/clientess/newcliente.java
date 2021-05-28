@@ -10,6 +10,11 @@ public class newcliente extends javax.swing.JFrame {
     public newcliente() {
         initComponents();
     }
+    public void limpiar(){
+        nomclientetxt.setText("");
+        direccionclientetxt.setText("");
+        edadclientetxt.setText("");
+    }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -133,12 +138,13 @@ public class newcliente extends javax.swing.JFrame {
         MSQLconnector.mostrardatos(VentanaPrincipal.con, VentanaPrincipal.ventanaclientev.getTabla());
         VentanaPrincipal.ventanaclientev.setVisible(true);
         this.setVisible(false);
+        this.limpiar();
     }//GEN-LAST:event_nuevoclientebtnActionPerformed
 
     private void canclientebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_canclientebtnActionPerformed
-        // TODO add your handling code here:
         this.setVisible(false);
-        new ventanacliente().setVisible(true);
+        this.limpiar();
+        VentanaPrincipal.ventanaclientev.setVisible(true);
     }//GEN-LAST:event_canclientebtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

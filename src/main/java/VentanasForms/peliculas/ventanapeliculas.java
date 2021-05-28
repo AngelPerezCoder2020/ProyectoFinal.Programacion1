@@ -111,9 +111,8 @@ public class ventanapeliculas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1ActionPerformed1(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed1
-        // TODO add your handling code here:
         this.setVisible(false);
-        new VentanaPrincipal().setVisible(true);
+        VentanaPrincipal.VentanaPrincipalv.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed1
 
     private void tablapeliculasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablapeliculasMouseClicked
