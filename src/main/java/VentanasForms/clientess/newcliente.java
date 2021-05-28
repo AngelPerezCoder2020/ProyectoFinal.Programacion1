@@ -133,7 +133,7 @@ public class newcliente extends javax.swing.JFrame {
 
     private void nuevoclientebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoclientebtnActionPerformed
        
-        if (nomclientetxt.getText().isEmpty()|| direccionclientetxt.getText().isEmpty()|| edadclientetxt.getText().isEmpty()){
+        if (nomclientetxt.getText().isEmpty() || direccionclientetxt.getText().isEmpty() || edadclientetxt.getText().isEmpty()){
              JOptionPane.showMessageDialog(null, "No se pueden guardar campos vacios");
         
         }else{
