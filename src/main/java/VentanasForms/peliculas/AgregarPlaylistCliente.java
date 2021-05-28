@@ -290,9 +290,9 @@ public class AgregarPlaylistCliente extends javax.swing.JFrame {
 
     private void btnSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalidaActionPerformed
         this.setVisible(false);
+        VentanaPrincipal.datosclientev.setVisible(true);
         this.limpiar();
         this.limpiartabla(MSQLconnector.mod);
-        VentanaPrincipal.datosclientev.setVisible(true);
     }//GEN-LAST:event_btnSalidaActionPerformed
 
     /**
