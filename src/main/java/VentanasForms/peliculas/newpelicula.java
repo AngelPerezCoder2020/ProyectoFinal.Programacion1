@@ -3,6 +3,7 @@ package VentanasForms.peliculas;
 import VentanasForms.VentanaPrincipal;
 import Funciones.MSQLconnector;
 import ClasesPrincipales.*;
+import javax.swing.JOptionPane;
 
 public class newpelicula extends javax.swing.JFrame {
     Peliculas pelicula = new Peliculas();
@@ -150,15 +151,21 @@ public class newpelicula extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarPeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarPeliActionPerformed
-        pelicula.setNombre(nombrepelitxt.getText());
-        pelicula.setTipo(tipopeli.getSelectedItem().toString());
-        pelicula.setGenero(generopeli.getSelectedItem().toString());
-        pelicula.setSinopsis(sinopsistxt.getText());
-        MSQLconnector.guardarPeli(VentanaPrincipal.con,pelicula.getNombre(),pelicula.getTipo(),pelicula.getGenero(),pelicula.getSinopsis());
-        this.limpiar();
-        this.setVisible(false);
-        MSQLconnector.mostrardatosPeli(VentanaPrincipal.con, VentanaPrincipal.ventanapeliculasv.getTabla());
-        VentanaPrincipal.ventanapeliculasv.setVisible(true);
+       if (nombrepelitxt.getText().isEmpty() || sinopsistxt.getText().isEmpty()){
+             JOptionPane.showMessageDialog(null, "No se pueden guardar campos vacios");
+       }else{
+            pelicula.setNombre(nombrepelitxt.getText());
+            pelicula.setTipo(tipopeli.getSelectedItem().toString());
+            pelicula.setGenero(generopeli.getSelectedItem().toString());
+            pelicula.setSinopsis(sinopsistxt.getText());
+            MSQLconnector.guardarPeli(VentanaPrincipal.con,pelicula.getNombre(),pelicula.getTipo(),pelicula.getGenero(),pelicula.getSinopsis());
+            this.limpiar();
+            this.setVisible(false);
+            MSQLconnector.mostrardatosPeli(VentanaPrincipal.con, VentanaPrincipal.ventanapeliculasv.getTabla());
+            VentanaPrincipal.ventanapeliculasv.setVisible(true);
+       
+       }
+       
     }//GEN-LAST:event_btnGuardarPeliActionPerformed
 
     private void btnSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalidaActionPerformed

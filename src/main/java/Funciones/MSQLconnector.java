@@ -105,7 +105,7 @@ public class MSQLconnector {
         }
     }
     public static void mostrardatosPlayList(Connection x, javax.swing.JTable t){
-        String[] titulos = {"PELICULAS"};
+        String[] titulos = {"PELICULA/SERIE"};
         String[] Re = new String[1];
         DefaultTableModel mod = new DefaultTableModel(null, titulos);
         t.setModel(mod);
