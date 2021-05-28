@@ -132,7 +132,7 @@ public class ventanapeliculas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed1
 
     private void agregaralaplaylistjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregaralaplaylistjButton1ActionPerformed
-        MSQLconnector.guardarPlayList(VentanaPrincipal.con, VentanaPrincipal.ventanaclientev.id, idpeli);
+        MSQLconnector.guardarplaylist(VentanaPrincipal.con, VentanaPrincipal.ventanaclientev.id, idpeli);
     }//GEN-LAST:event_agregaralaplaylistjButton1ActionPerformed
 
     private void tablapeliculasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablapeliculasMouseClicked

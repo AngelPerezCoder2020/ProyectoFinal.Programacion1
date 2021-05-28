@@ -86,17 +86,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         ventanaclientev.setVisible(true);
-        this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         ventanapeliculasv.setVisible(true);
-<<<<<<< HEAD
         ventanapeliculasv.getButton().setVisible(true);
         ventanapeliculasv.getButton2().setVisible(false);
-=======
-        this.setVisible(false);
->>>>>>> ae16d84368d04b1bf162d71478a4f93ff09f895c
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

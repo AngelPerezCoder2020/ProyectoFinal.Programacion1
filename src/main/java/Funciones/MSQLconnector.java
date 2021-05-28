@@ -21,6 +21,18 @@ public class MSQLconnector {
         }
         return con;
     }
+    public static void guardarplaylist (Connection c, String idcliente, String idpelicula){
+        String co = "INSERT INTO `playlist` (`ID_CLIENTE`, `ID_PELICULA`) VALUES (?, ?);";
+        try{
+            PreparedStatement pst = c.prepareStatement(co);
+            pst.setString(1, idcliente);
+            pst.setString(2, idpelicula);
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Registro guardado en la playlist");
+        }catch(Exception ex){
+            error(ex);
+        }
+    }
     public static void guardar(Connection x, javax.swing.JTextField n, javax.swing.JTextField a, javax.swing.JTextField d){
         String c = "INSERT INTO `clientes` (`NOMBRE`, `DIRECCION`, `EDAD`) VALUES (?, ?, ?);";
         try{
