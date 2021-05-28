@@ -149,17 +149,6 @@ public class AgregarPlaylistCliente extends javax.swing.JFrame {
                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
-        tablapeliculas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
         tablapeliculas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablapeliculasMouseClicked(evt);
@@ -271,12 +260,16 @@ public class AgregarPlaylistCliente extends javax.swing.JFrame {
         Nuevaplaylist.setPelicula(txtPeli.getText());
         MSQLconnector.guardarplaylist(VentanaPrincipal.con,Nuevaplaylist.getID_nombre(),Nuevaplaylist.getNombre(),Nuevaplaylist.getID_pelicula(),Nuevaplaylist.getPelicula());
         MSQLconnector.mostrardatosPlayList(VentanaPrincipal.con, tablapersonal);
+         
+        
+        
     }//GEN-LAST:event_btnAgregarplaylistActionPerformed
 
     private void tablapeliculasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablapeliculasMouseClicked
         int f = tablapeliculas.rowAtPoint(evt.getPoint());
         txtIDPeli.setText(tablapeliculas.getValueAt(f, 0).toString());
         txtPeli.setText(tablapeliculas.getValueAt(f, 1).toString());
+   
     }//GEN-LAST:event_tablapeliculasMouseClicked
 
     private void tablaclientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaclientesMouseClicked
@@ -286,6 +279,8 @@ public class AgregarPlaylistCliente extends javax.swing.JFrame {
         txtNombre.setText(tablaclientes.getValueAt(f, 1).toString());
         guardarid(id);
         MSQLconnector.mostrardatosPlayList(VentanaPrincipal.con, tablapersonal);
+       
+        
     }//GEN-LAST:event_tablaclientesMouseClicked
 
     private void btnSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalidaActionPerformed
