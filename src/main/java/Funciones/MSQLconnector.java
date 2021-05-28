@@ -68,6 +68,7 @@ public class MSQLconnector {
         String[] Re = new String[4];
         DefaultTableModel mo = new DefaultTableModel(null, titulos);
         t.setModel(mo);
+      
         try{
             Statement st = x.createStatement();
             ResultSet resultado = st.executeQuery("SELECT * FROM `clientes`");
@@ -87,6 +88,7 @@ public class MSQLconnector {
         String[] Re = new String[5];
         DefaultTableModel mo = new DefaultTableModel(null, titulos);
         t.setModel(mo);
+      
         try{
             Statement st = x.createStatement();
             ResultSet resultado = st.executeQuery("SELECT * FROM `peliculas`");
@@ -103,8 +105,8 @@ public class MSQLconnector {
         }
     }
     public static void mostrardatosPlayList(Connection x, javax.swing.JTable t){
-        String[] titulos = {"NOMBRE","TIPO", "GENERO", "SINOPSIS"};
-        String[] Re = new String[4];
+        String[] titulos = {"PELICULAS"};
+        String[] Re = new String[1];
         DefaultTableModel mod = new DefaultTableModel(null, titulos);
         t.setModel(mod);
         try{
@@ -118,9 +120,9 @@ public class MSQLconnector {
                         ResultSet playL = std.executeQuery(c);
                         while(playL.next()){
                             Re[0] = playL.getString("NOMBRE");
-                            Re[1] = playL.getString("TIPO");
-                            Re[2] = playL.getString("GENERO");
-                            Re[3] = playL.getString("SINOPSIS");
+                            //Re[1] = playL.getString("TIPO");
+                            //Re[2] = playL.getString("GENERO");
+                            //Re[3] = playL.getString("SINOPSIS");
                             mod.addRow(Re);
                         }
                     }catch(Exception ex){
@@ -136,6 +138,7 @@ public class MSQLconnector {
             error(ex);
         }
     }
+    
     public static void guardarmodelo(javax.swing.table.DefaultTableModel x){
         mod = x;
     }
