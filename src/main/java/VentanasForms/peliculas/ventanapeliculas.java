@@ -11,9 +11,6 @@ public class ventanapeliculas extends javax.swing.JFrame {
     public javax.swing.JButton getButton(){
         return agregarpeliculab;
     }
-    public javax.swing.JButton getButton2(){
-        return agregaralaplaylist;
-    }
     public javax.swing.JTable getTabla(){
         return tablapeliculas;
     }
@@ -28,7 +25,6 @@ public class ventanapeliculas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablapeliculas = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
-        agregaralaplaylist = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Wide Latin", 3, 24)); // NOI18N
         jLabel1.setText("VENTANA PELICULAS");
@@ -69,14 +65,6 @@ public class ventanapeliculas extends javax.swing.JFrame {
             }
         });
 
-        agregaralaplaylist.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 3, 18)); // NOI18N
-        agregaralaplaylist.setText("AGREGAR A LA PLAYLIST");
-        agregaralaplaylist.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                agregaralaplaylistjButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -91,13 +79,11 @@ public class ventanapeliculas extends javax.swing.JFrame {
                         .addGap(80, 80, 80)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
+                        .addGap(93, 93, 93)
                         .addComponent(agregarpeliculab, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(agregaralaplaylist, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(26, 26, 26)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                .addContainerGap(144, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,14 +93,13 @@ public class ventanapeliculas extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(agregarpeliculab, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(agregaralaplaylist, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(78, 78, 78)))
                 .addContainerGap())
         );
 
@@ -131,17 +116,12 @@ public class ventanapeliculas extends javax.swing.JFrame {
         new VentanaPrincipal().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed1
 
-    private void agregaralaplaylistjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregaralaplaylistjButton1ActionPerformed
-        MSQLconnector.guardarplaylist(VentanaPrincipal.con, VentanaPrincipal.ventanaclientev.id, idpeli);
-    }//GEN-LAST:event_agregaralaplaylistjButton1ActionPerformed
-
     private void tablapeliculasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablapeliculasMouseClicked
         int f = tablapeliculas.rowAtPoint(evt.getPoint());
         setIdpeli(tablapeliculas.getValueAt(f,0).toString());
     }//GEN-LAST:event_tablapeliculasMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton agregaralaplaylist;
     private javax.swing.JButton agregarpeliculab;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

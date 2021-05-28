@@ -91,9 +91,7 @@ public class playlistusuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        VentanaPrincipal.ventanapeliculasv.setVisible(true);
-        VentanaPrincipal.ventanapeliculasv.getButton().setVisible(false);
-        VentanaPrincipal.ventanapeliculasv.getButton2().setVisible(true);
+        VentanaPrincipal.AgregarPlaylistClientev.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnvolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolverActionPerformed

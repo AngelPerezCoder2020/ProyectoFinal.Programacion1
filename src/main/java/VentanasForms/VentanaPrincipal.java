@@ -13,6 +13,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public static ventanapeliculas ventanapeliculasv = new ventanapeliculas();
     public static newpelicula newpeliculav = new newpelicula();
     public static playlistusuario playlistusuariov = new playlistusuario();
+    public static AgregarPlaylistCliente AgregarPlaylistClientev = new AgregarPlaylistCliente();
     
     public VentanaPrincipal() {
         initComponents();
@@ -88,7 +89,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         ventanapeliculasv.setVisible(true);
         ventanapeliculasv.getButton().setVisible(true);
-        ventanapeliculasv.getButton2().setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
