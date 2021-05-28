@@ -2,6 +2,7 @@ package VentanasForms.peliculas;
 import ClasesPrincipales.Playlist;
 import Funciones.MSQLconnector;
 import VentanasForms.VentanaPrincipal;
+import javax.swing.JOptionPane;
 
 public class AgregarPlaylistCliente extends javax.swing.JFrame {
     Playlist Nuevaplaylist = new Playlist();
@@ -254,13 +255,19 @@ public class AgregarPlaylistCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarplaylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarplaylistActionPerformed
-        Nuevaplaylist.setID_nombre(txtIDNombre.getText());
-        Nuevaplaylist.setNombre(txtNombre.getText());
-        Nuevaplaylist.setID_pelicula(txtIDPeli.getText());
-        Nuevaplaylist.setPelicula(txtPeli.getText());
-        MSQLconnector.guardarplaylist(VentanaPrincipal.con,Nuevaplaylist.getID_nombre(),Nuevaplaylist.getNombre(),Nuevaplaylist.getID_pelicula(),Nuevaplaylist.getPelicula());
-        MSQLconnector.mostrardatosPlayList(VentanaPrincipal.con, tablapersonal);
-         
+        
+        if(txtIDNombre.getText().isEmpty()||txtNombre.getText().isEmpty()||txtIDPeli.getText().isEmpty()||txtPeli.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "No se pueden guardar campos vacios");
+        
+        }else{
+            Nuevaplaylist.setID_nombre(txtIDNombre.getText());
+            Nuevaplaylist.setNombre(txtNombre.getText());
+            Nuevaplaylist.setID_pelicula(txtIDPeli.getText());
+            Nuevaplaylist.setPelicula(txtPeli.getText());
+            MSQLconnector.guardarplaylist(VentanaPrincipal.con,Nuevaplaylist.getID_nombre(),Nuevaplaylist.getNombre(),Nuevaplaylist.getID_pelicula(),Nuevaplaylist.getPelicula());
+            MSQLconnector.mostrardatosPlayList(VentanaPrincipal.con, tablapersonal);
+        
+        }
         
         
     }//GEN-LAST:event_btnAgregarplaylistActionPerformed
