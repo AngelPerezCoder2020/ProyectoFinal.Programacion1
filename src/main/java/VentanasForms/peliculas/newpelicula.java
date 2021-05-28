@@ -22,11 +22,11 @@ public class newpelicula extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         namepelitxt = new javax.swing.JTextField();
-        tipopelitxt = new javax.swing.JTextField();
-        generotxt = new javax.swing.JTextField();
         sinopsistxt = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         cancelapelibtn = new javax.swing.JButton();
+        combotipo = new javax.swing.JComboBox<>();
+        combogenero = new javax.swing.JComboBox<>();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 36)); // NOI18N
         jLabel1.setText("NUEVA PELICULA ");
@@ -40,15 +40,6 @@ public class newpelicula extends javax.swing.JFrame {
         jLabel5.setText("SINOPSIS:");
 
         namepelitxt.setText(" ");
-
-        tipopelitxt.setText(" ");
-        tipopelitxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tipopelitxtActionPerformed(evt);
-            }
-        });
-
-        generotxt.setText(" ");
 
         sinopsistxt.setText(" ");
 
@@ -65,6 +56,10 @@ public class newpelicula extends javax.swing.JFrame {
                 cancelapelibtnActionPerformed(evt);
             }
         });
+
+        combotipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Serie", "Pelicula" }));
+
+        combogenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Drama", "Comedia", "Terror", "Suspenso" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -84,10 +79,10 @@ public class newpelicula extends javax.swing.JFrame {
                         .addGap(0, 134, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(generotxt)
-                            .addComponent(tipopelitxt)
                             .addComponent(sinopsistxt)
-                            .addComponent(namepelitxt))
+                            .addComponent(namepelitxt)
+                            .addComponent(combotipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(combogenero, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(47, 47, 47)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -99,7 +94,7 @@ public class newpelicula extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -108,7 +103,7 @@ public class newpelicula extends javax.swing.JFrame {
                         .addGap(19, 19, 19)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(tipopelitxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(combotipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
@@ -139,11 +134,8 @@ public class newpelicula extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tipopelitxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipopelitxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tipopelitxtActionPerformed
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        MSQLconnector.guardarPeli(VentanaPrincipal.con, namepelitxt, tipopelitxt, generotxt, sinopsistxt);
+        MSQLconnector.guardarPeli(VentanaPrincipal.con, namepelitxt, combotipo, combogenero, sinopsistxt);
         this.setVisible(false);
         MSQLconnector.mostrardatosPeli(VentanaPrincipal.con, VentanaPrincipal.ventanapeliculasv.getTabla());
         VentanaPrincipal.ventanapeliculasv.setVisible(true);
@@ -158,7 +150,8 @@ public class newpelicula extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelapelibtn;
-    private javax.swing.JTextField generotxt;
+    private javax.swing.JComboBox<String> combogenero;
+    private javax.swing.JComboBox<String> combotipo;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -168,7 +161,6 @@ public class newpelicula extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField namepelitxt;
     private javax.swing.JTextField sinopsistxt;
-    private javax.swing.JTextField tipopelitxt;
     // End of variables declaration//GEN-END:variables
 
 /*class fondopanel extends JPanel{
