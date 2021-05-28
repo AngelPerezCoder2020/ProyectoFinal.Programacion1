@@ -33,27 +33,27 @@ public class MSQLconnector {
             error(ex);
         }
     }
-    public static void guardar(Connection x, javax.swing.JTextField n, javax.swing.JTextField a, javax.swing.JTextField d){
+    public static void guardar(Connection x, String n, String a, String d){
         String c = "INSERT INTO `clientes` (`NOMBRE`, `DIRECCION`, `EDAD`) VALUES (?, ?, ?);";
         try{
             PreparedStatement pst = x.prepareStatement(c);
-            pst.setString(1, n.getText());
-            pst.setString(2, a.getText());
-            pst.setString(3, d.getText());
+            pst.setString(1, n);
+            pst.setString(2, a);
+            pst.setString(3, d);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Cliente Guardado en la base de datos");
         }catch(Exception ex){
             error(ex);
         }
     }
-    public static void guardarPeli(Connection x, javax.swing.JTextField n, javax.swing.JComboBox t, javax.swing.JComboBox g, javax.swing.JTextField s){
+    public static void guardarPeli(Connection x, String n, String t, String g, String s){
         String c = "INSERT INTO `peliculas` (`NOMBRE`, `TIPO`, `GENERO`, `SINOPSIS`) VALUES (?, ?, ?, ?);";
         try{
             PreparedStatement pst = x.prepareStatement(c);
-            pst.setString(1, n.getText());
-            pst.setString(2, t.getSelectedItem().toString());
-            pst.setString(3, g.getSelectedItem().toString());
-            pst.setString(4, s.getText());
+            pst.setString(1, n);
+            pst.setString(2, t);
+            pst.setString(3, g);
+            pst.setString(4, s);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Pelicula Guardada en la base de datos");
         }catch(Exception ex){

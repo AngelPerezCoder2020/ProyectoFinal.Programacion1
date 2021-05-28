@@ -1,11 +1,8 @@
 package VentanasForms;
 import Funciones.MSQLconnector;
-import VentanasForms.clientess.ventanacliente;
-import VentanasForms.peliculas.newpelicula;
-import VentanasForms.peliculas.ventanapeliculas;
-import VentanasForms.peliculas.playlistusuario;
-import VentanasForms.clientess.newcliente;
-import VentanasForms.clientess.DatosCliente;
+import VentanasForms.clientess.*;
+import VentanasForms.peliculas.*;
+
 import java.sql.Connection;
 
 public class VentanaPrincipal extends javax.swing.JFrame {

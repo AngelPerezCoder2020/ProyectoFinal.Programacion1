@@ -2,9 +2,10 @@ package VentanasForms.peliculas;
 
 import VentanasForms.VentanaPrincipal;
 import Funciones.MSQLconnector;
+import ClasesPrincipales.*;
 
 public class newpelicula extends javax.swing.JFrame {
-
+    Peliculas pelicula = new Peliculas();
     public newpelicula() {
         initComponents();
     }
@@ -102,7 +103,11 @@ public class newpelicula extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        MSQLconnector.guardarPeli(VentanaPrincipal.con, nombrepelitxt, tipopeli, generopeli, sinopsistxt);
+        pelicula.setNombre(nombrepelitxt.getText());
+        pelicula.setTipo(tipopeli.getSelectedItem().toString());
+        pelicula.setGenero(generopeli.getSelectedItem().toString());
+        pelicula.setSinopsis(sinopsistxt.getText());
+        MSQLconnector.guardarPeli(VentanaPrincipal.con,pelicula.getNombre(),pelicula.getTipo(),pelicula.getGenero(),pelicula.getSinopsis());
         this.setVisible(false);
         VentanaPrincipal.ventanapeliculasv.setVisible(true);
         MSQLconnector.mostrardatosPeli(VentanaPrincipal.con, VentanaPrincipal.ventanapeliculasv.getTabla());
