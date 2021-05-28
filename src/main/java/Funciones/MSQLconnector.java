@@ -21,12 +21,14 @@ public class MSQLconnector {
         }
         return con;
     }
-    public static void guardarplaylist (Connection c, String idcliente, String idpelicula){
-        String co = "INSERT INTO `playlist` (`ID_CLIENTE`, `ID_PELICULA`) VALUES (?, ?);";
+    public static void guardarplaylist (Connection x, String idcliente, String cliente, String idpeli, String peli){
+        String c = "INSERT INTO `playlist` (`ID_CLIENTE`,`NombreCliente`,`ID_PELICULA`, `NombrePelicula`) VALUES (?, ?, ?, ?);";
         try{
-            PreparedStatement pst = c.prepareStatement(co);
+            PreparedStatement pst = x.prepareStatement(c);
             pst.setString(1, idcliente);
-            pst.setString(2, idpelicula);
+            pst.setString(2, cliente);
+            pst.setString(3, idpeli);
+            pst.setString(4, peli);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Registro guardado en la playlist");
         }catch(Exception ex){
@@ -100,7 +102,7 @@ public class MSQLconnector {
         }
     }
     public static void mostrardatosPlayList(Connection x, javax.swing.JTable t){
-        String[] titulos = {"NOMBRE", "TIPO", "GENERO", "SINOPSIS"};
+        String[] titulos = {"ID","ID_CLIENTE", "NombreCliente", "ID_PELICULA", "NombrePelicula"};
         String[] Re = new String[4];
         DefaultTableModel mo = new DefaultTableModel(null, titulos);
         t.setModel(mo);
@@ -112,10 +114,11 @@ public class MSQLconnector {
                     String c = "SELECT * FROM `peliculas` WHERE `ID` = "+resultado.getString("ID_PELICULA").toString()+";";
                     try{
                         ResultSet playL = st.executeQuery(c);
-                        Re[0]= playL.getString("NOMBRE").toString();
-                        Re[1]= playL.getString("TIPO").toString();
-                        Re[2]= playL.getString("GENERO").toString();
-                        Re[3]= playL.getString("SINOPSIS").toString();
+                        Re[0]= playL.getString("ID").toString();
+                        Re[1]= playL.getString("NombreCliente").toString();
+                        Re[2]= playL.getString("NombreCliente").toString();
+                        Re[3]= playL.getString("ID_PELICULA").toString();
+                        Re[4]= playL.getString("NombrePelicula").toString();
                         mo.addRow(Re);
                     }catch(Exception ex){
                         error(ex);
